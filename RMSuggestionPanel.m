@@ -168,7 +168,8 @@
 			rect.size.height = uiTotalHeight;
 
 			[self setFrame: rect];
-			[self.delegate suggestionPanel:self didChangeHeight:uiTotalHeight];
+			if ([self.delegate respondsToSelector:@selector(suggestionPanel:didChangeHeight:)])
+				[self.delegate suggestionPanel:self didChangeHeight:uiTotalHeight];
 		}
 
 	}
